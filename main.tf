@@ -1,8 +1,8 @@
 resource "aws_instance" "jenkins" {
   ami                    = data.aws_ami.joindevops.id
   instance_type          = "t3.micro"
-  vpc_security_group_ids = ["sg-0ed700c7462de1777"]
-  subnet_id              = "subnet-05e4a80914b0743ce"
+  vpc_security_group_ids = ["sg-07b7880de86939082"]
+  subnet_id              = "subnet-0c6a7377e3409382e"
   user_data = file("jenkins.sh")
 
   root_block_device {
@@ -20,8 +20,8 @@ resource "aws_instance" "jenkins" {
 resource "aws_instance" "jenkins-agent" {
   ami                    = data.aws_ami.joindevops.id
   instance_type          = "t3.micro"
-  vpc_security_group_ids = ["sg-0f53a91997d8aa756"]
-  subnet_id              = "subnet-05e4a80914b0743ce"
+  vpc_security_group_ids = ["sg-0baca4e85a0f3eafb"]
+  subnet_id              = "subnet-0c6a7377e3409382e"
   user_data = file("jenkins-agent.sh")
 
   root_block_device {
